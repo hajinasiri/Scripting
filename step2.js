@@ -1,17 +1,17 @@
-
-
-function getAndPrintHTMLChunks () {
+function getAndPrintHTML () {
   var https = require('https');
   var requestOptions = {
     host: 'sytantris.github.io',
-    path: '/http-examples/step1.html'
+    path: '/http-examples/step2.html'
   };
-
+  var buffer = '';
   https.get(requestOptions, function (response){
     response.setEncoding('utf8');
     response.on('data',function (data) {
-      console.log('chunk Recieved', data);
+      buffer += data;
+      console.log('Data Recieved', buffer);
     });
   });
-};
-getAndPrintHTMLChunks();
+
+}
+getAndPrintHTML();
